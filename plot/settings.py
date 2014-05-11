@@ -10,6 +10,7 @@ def apply_settings(matplotlib, stylename):
         fig_size =  [fig_width,fig_height]
         params = {'backend': 'ps',
                   'axes.labelsize': 10,
+                  'axes.titlesize': 10,
                   'text.fontsize': 10,
                   'legend.fontsize': 10,
                   'xtick.labelsize': 8,
