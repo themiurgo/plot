@@ -46,6 +46,6 @@ if __name__ == "__main__":
     common_settings(args, plt)
     plt.plot(x, y, args['--markerstyle'], rasterized=args['--rasterized'])
     if args['--output']:
-        plt.savefig(args['--output'], dpi=int(args['--dpi']), bbox_inches='tight')
+        plt.savefig(args['--output'], dpi=int(args['--dpi']))
     else:
         plt.show()
