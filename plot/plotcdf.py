@@ -16,6 +16,7 @@ Options:
   -b INT --nbins=INT       number of bins
   -lb --logbin             logarithmic binning
   -ls STR --linestyle=STR  linestyle (matplotlib) [default: -]
+  -ps STR --plotstyle=STR  plotstyle
   -o FILE --output=FILE    save to file (do not show)
 
 """
@@ -30,7 +31,6 @@ import numpy as np
 
 import settings
 from utils import common_settings
-#settings.apply_settings(mpl)
 
 import plotpdf
 
