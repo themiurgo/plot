@@ -4,7 +4,7 @@
 """Plot PDF.
 
 Usage:
-  plotpdf FILE [options]
+  plotpdf DATAFILE ... [options]
 
 Options:
   -t STR --title=STR      title
@@ -12,10 +12,12 @@ Options:
   -y STR --ylabel=STR     y axis label [default: CDF]
   -b INT --nbins=INT      number of bins
   -lb --logbin            logarithmic binning
+  -o FILE --output=FILE   save to file (do not show)
 
 """
 
 import fileinput
+import sys
 
 from docopt import docopt
 import matplotlib as mpl
@@ -38,10 +40,14 @@ def histogram(args, data):
 
 if __name__ == "__main__":
     args = docopt(__doc__, version='Plot 0.1')
+    sys.argv = [sys.argv[0]] + args['DATAFILE']
     finput = fileinput.FileInput(openhook=fileinput.hook_compressed)
     data = [float(i) for i in finput]
     n, bin_edges = histogram(args, data)
 
     common_settings(args, plt)
     plt.plot(bin_edges[1:], n, 'o')
-    plt.show()
+    if args['--output']:
+        plt.savefig(args['--output'])
+    else:
+        plt.show()
