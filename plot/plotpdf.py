@@ -3,16 +3,20 @@
 
 """Plot PDF.
 
+Prints the probability density function of input values. It accepts one value
+per line.
+
 Usage:
   plotpdf DATAFILE ... [options]
 
 Options:
-  -t STR --title=STR      title
-  -x STR --xlabel=STR     x axis label [default: Values]
-  -y STR --ylabel=STR     y axis label [default: CDF]
-  -b INT --nbins=INT      number of bins
-  -lb --logbin            logarithmic binning
-  -o FILE --output=FILE   save to file (do not show)
+  -t STR --title=STR       title
+  -x STR --xlabel=STR      x axis label [default: Values]
+  -y STR --ylabel=STR      y axis label [default: CDF]
+  -b INT --nbins=INT       number of bins
+  -lb --logbin             logarithmic binning
+  -ls STR --linestyle=STR  linestyle (matplotlib) [default: -]
+  -o FILE --output=FILE    save to file (do not show)
 
 """
 
@@ -46,7 +50,7 @@ if __name__ == "__main__":
     n, bin_edges = histogram(args, data)
 
     common_settings(args, plt)
-    plt.plot(bin_edges[1:], n, 'o')
+    plt.plot(bin_edges[1:], n, args['--linestyle'])
     if args['--output']:
         plt.savefig(args['--output'])
     else:

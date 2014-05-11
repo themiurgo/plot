@@ -3,17 +3,20 @@
 
 """Plot CDF.
 
+Prints the cumulative density function of input values. It accepts one value
+per line.
+
 Usage:
-  plotpdf DATAFILE ... [options]
+  plotcdf DATAFILE ... [options]
 
 Options:
-  -t STR --title=STR      title
-  -x STR --xlabel=STR     x axis label [default: Values]
-  -y STR --ylabel=STR     y axis label [default: CDF]
-  -b INT --nbins=INT      number of bins
-  -lb --logbin            logarithmic binning
-  -o FILE --output=FILE   save to file (do not show)
-  -ls STR --linestyle     linestyle (matplotlib)
+  -t STR --title=STR       title
+  -x STR --xlabel=STR      x axis label [default: Values]
+  -y STR --ylabel=STR      y axis label [default: CDF]
+  -b INT --nbins=INT       number of bins
+  -lb --logbin             logarithmic binning
+  -ls STR --linestyle=STR  linestyle (matplotlib) [default: -]
+  -o FILE --output=FILE    save to file (do not show)
 
 """
 
@@ -40,7 +43,7 @@ if __name__ == "__main__":
     n = np.cumsum(n*np.diff(bin_edges))
 
     common_settings(args, plt)
-    plt.plot(bin_edges[1:], n, '-')
+    plt.plot(bin_edges[1:], n, args['--linestyle'])
     if args['--output']:
         plt.savefig(args['--output'])
     else:
