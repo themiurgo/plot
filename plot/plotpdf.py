@@ -7,7 +7,7 @@ Prints the probability density function of input values. It accepts one value
 per line.
 
 Usage:
-  plotpdf DATAFILE ... [options]
+  plotpdf [DATAFILE ...] [options]
 
 Options:
   -t STR --title=STR       title

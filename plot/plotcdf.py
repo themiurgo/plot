@@ -7,7 +7,7 @@ Prints the cumulative density function of input values. It accepts one value
 per line.
 
 Usage:
-  plotcdf DATAFILE ... [options]
+  plotcdf [DATAFILE ...] [options]
 
 Options:
   -t STR --title=STR       title
