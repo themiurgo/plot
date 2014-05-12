@@ -52,7 +52,6 @@ if __name__ == "__main__":
     plt.plot(bin_edges[1:], n, args['--linestyle'])
     plt.plot(bin_edges[1:], n, args['--linestyle'], rasterized=args['--rasterized'])
     if args['--output']:
-        plt.savefig(args['--output'])
         plt.savefig(args['--output'], dpi=int(args['--dpi']))
     else:
         plt.show()
