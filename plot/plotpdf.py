@@ -12,7 +12,7 @@ Usage:
 Options:
   -t STR --title=STR       title
   -x STR --xlabel=STR      x axis label [default: Values]
-  -y STR --ylabel=STR      y axis label [default: CDF]
+  -y STR --ylabel=STR      y axis label [default: PDF]
   -b INT --nbins=INT       number of bins
   --logbin                 logarithmic binning
   --linestyle=STR          linestyle (matplotlib) [default: -]
