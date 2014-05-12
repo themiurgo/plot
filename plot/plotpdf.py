@@ -56,7 +56,6 @@ if __name__ == "__main__":
     n, bin_edges = histogram(args, data)
 
     common_settings(args, plt)
-    plt.plot(bin_edges[1:], n, args['--linestyle'])
     plt.plot(bin_edges[1:], n, args['--linestyle'], rasterized=args['--rasterized'])
     if args['--output']:
         plt.savefig(args['--output'], dpi=int(args['--dpi']))
