@@ -18,6 +18,8 @@ Options:
   -ls STR --linestyle=STR  linestyle (matplotlib) [default: -]
   -ps STR --plotstyle=STR  plotstyle
   -o FILE --output=FILE    save to file (do not show)
+  --xlog                   x logarithmic scale
+  --ylog                   y logarithmic scale
 
 """
 

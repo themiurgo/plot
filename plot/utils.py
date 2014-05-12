@@ -4,3 +4,7 @@ def common_settings(args, plt):
         plt.title(args['--title'])
     plt.ylabel(args['--ylabel'])
     plt.xlabel(args['--xlabel'])
+    if args['--xlog']:
+        plt.xscale('log')
+    if args['--ylog']:
+        plt.yscale('log')
