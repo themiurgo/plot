@@ -41,9 +41,9 @@ def histogram(args, data):
     if not args['--nbins']:
         args['--nbins'] = 1+ np.log2(len(data))
     if args['--logbin']:
-        bins = np.logspace(left, right, args['--nbins'])
+        bins = np.logspace(left, right, int(args['--nbins']))
     else:
-        bins = np.linspace(left, right, args['--nbins'])
+        bins = np.linspace(left, right, int(args['--nbins']))
     return np.histogram(data, bins=bins, density=True)
 
 if __name__ == "__main__":
