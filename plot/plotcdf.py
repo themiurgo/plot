@@ -49,7 +49,6 @@ if __name__ == "__main__":
     n = np.cumsum(n*np.diff(bin_edges))
 
     common_settings(args, plt)
-    plt.plot(bin_edges[1:], n, args['--linestyle'])
     plt.plot(bin_edges[1:], n, args['--linestyle'], rasterized=args['--rasterized'])
     if args['--output']:
         plt.savefig(args['--output'], dpi=int(args['--dpi']))
