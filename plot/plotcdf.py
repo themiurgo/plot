@@ -20,6 +20,8 @@ Options:
   -o FILE --output=FILE    save to file (do not show)
   --xlog                   x logarithmic scale
   --ylog                   y logarithmic scale
+  -r --rasterized          rasterize data points (to speed up rendering of many data points).
+  --dpi=INT                resolution (only has sense when using rasterize) [default: 300]
 
 """
 
@@ -46,7 +48,9 @@ if __name__ == "__main__":
 
     common_settings(args, plt)
     plt.plot(bin_edges[1:], n, args['--linestyle'])
+    plt.plot(bin_edges[1:], n, args['--linestyle'], rasterized=args['--rasterized'])
     if args['--output']:
         plt.savefig(args['--output'])
+        plt.savefig(args['--output'], dpi=int(args['--dpi']))
     else:
         plt.show()
