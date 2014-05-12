@@ -41,6 +41,8 @@ import plotpdf
 if __name__ == "__main__":
     args = docopt(__doc__, version='Plot 0.1')
     sys.argv = [sys.argv[0]] + args['DATAFILE']
+    if args['--plotstyle']:
+        settings.apply_settings(mpl, args['--plotstyle'])
     finput = fileinput.FileInput(openhook=fileinput.hook_compressed)
     data = [float(i) for i in finput]
     n, bin_edges = plotpdf.histogram(args, data)
