@@ -14,9 +14,9 @@ Options:
   -x STR --xlabel=STR      x axis label [default: Values]
   -y STR --ylabel=STR      y axis label [default: CDF]
   -b INT --nbins=INT       number of bins
-  -lb --logbin             logarithmic binning
-  -ls STR --linestyle=STR  linestyle (matplotlib) [default: -]
-  -ps STR --plotstyle=STR  plotstyle
+  --logbin                 logarithmic binning
+  --linestyle=STR          linestyle (matplotlib) [default: -]
+  --plotstyle=STR          plotstyle
   -o FILE --output=FILE    save to file (do not show)
   --xlog                   x logarithmic scale
   --ylog                   y logarithmic scale
