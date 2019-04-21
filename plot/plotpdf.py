@@ -41,7 +41,7 @@ def histogram(args, data):
     if not args['--nbins']:
         args['--nbins'] = 1+ np.log2(len(data))
     if args['--logbin']:
-        bins = np.logspace(left, right, int(args['--nbins']))
+        bins = np.logspace(np.log(left), np.log(right), int(args['--nbins']))
     else:
         bins = np.linspace(left, right, int(args['--nbins']))
     return np.histogram(data, bins=bins, density=True)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     if args['--plotstyle']:
         settings.apply_settings(mpl, args['--plotstyle'])
     finput = fileinput.FileInput(openhook=fileinput.hook_compressed)
-    data = [float(i) for i in finput]
+    data = [np.abs(float(i)+1) for i in finput]
     n, bin_edges = histogram(args, data)
 
     common_settings(args, plt)

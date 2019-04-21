@@ -44,13 +44,14 @@ if __name__ == "__main__":
     if args['--plotstyle']:
         settings.apply_settings(mpl, args['--plotstyle'])
     finput = fileinput.FileInput(openhook=fileinput.hook_compressed)
-    data = [float(i) for i in finput]
+    data = [np.abs(float(i)) for i in finput]
     n, bin_edges = plotpdf.histogram(args, data)
     n = np.cumsum(n*np.diff(bin_edges))
-    n = np.insert(n, 0, 0)
-
+    #n = np.insert(n, 0, 0)
+    print min(n), max(n)
+    print min(bin_edges), max(bin_edges)
     common_settings(args, plt)
-    plt.plot(bin_edges, n, args['--linestyle'], rasterized=args['--rasterized'])
+    plt.plot(bin_edges[1:], n, args['--linestyle'], rasterized=args['--rasterized'])
     if args['--output']:
         plt.savefig(args['--output'], dpi=int(args['--dpi']))
     else:
